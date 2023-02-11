@@ -6,7 +6,7 @@
 /*   By: lfantine <lfantine@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 12:56:12 by lfantine          #+#    #+#             */
-/*   Updated: 2023/02/02 15:33:55 by lfantine         ###   ########.fr       */
+/*   Updated: 2023/02/11 13:27:43 by lfantine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,11 +48,11 @@ int	init_cf_texture(t_system *sys, int x, int y)
 	{
 		if (sys->map[x][0] == 'F')
 		{
-			init_cf_texture2(sys, x, y, 0);
+			init_cf_texture2(sys, x, y, 1);
 		}
 		if (sys->map[x][0] == 'C')
 		{
-			init_cf_texture2(sys, x, y, 1);
+			init_cf_texture2(sys, x, y, 0);
 		}
 		x++;
 	}
@@ -89,13 +89,13 @@ int	init_texture2(t_system	*sys)
 
 	size = IMGS;
 	sys->txt->no.img = mlx_xpm_file_to_image(sys->mlx,
-			sys->txt->n_texture, &size, &size);
-	sys->txt->so.img = mlx_xpm_file_to_image(sys->mlx,
 			sys->txt->s_texture, &size, &size);
+	sys->txt->so.img = mlx_xpm_file_to_image(sys->mlx,
+			sys->txt->n_texture, &size, &size);
 	sys->txt->we.img = mlx_xpm_file_to_image(sys->mlx,
-			sys->txt->w_texture, &size, &size);
-	sys->txt->ea.img = mlx_xpm_file_to_image(sys->mlx,
 			sys->txt->e_texture, &size, &size);
+	sys->txt->ea.img = mlx_xpm_file_to_image(sys->mlx,
+			sys->txt->w_texture, &size, &size);
 	sys->txt->no.addr = mlx_get_data_addr(sys->txt->no.img,
 			&sys->txt->no.bits_per_pixel, &sys->txt->no.line_length,
 			&sys->txt->no.endian);

@@ -6,7 +6,7 @@
 /*   By: lfantine <lfantine@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 10:30:45 by lfantine          #+#    #+#             */
-/*   Updated: 2023/02/03 09:14:23 by lfantine         ###   ########.fr       */
+/*   Updated: 2023/02/03 11:25:25 by lfantine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,6 +98,7 @@ int	verif_char(t_system *sys, int fd)
 	buf = remove_nl(buf);
 	i = 8;
 	sys->map = ft_split_cb(buf, '\n');
+	free(buf);
 	if (verif_line(sys) == -1)
 		return (-1);
 	while (sys->map[i])

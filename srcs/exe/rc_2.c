@@ -6,7 +6,7 @@
 /*   By: lfantine <lfantine@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 12:56:12 by lfantine          #+#    #+#             */
-/*   Updated: 2023/02/02 16:01:27 by lfantine         ###   ########.fr       */
+/*   Updated: 2023/02/03 11:11:54 by lfantine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,13 +39,13 @@ void	p_tex2(t_ptex px, int side, t_posd *raydir, t_system *sys)
 		px.tex_y = (int)px.texpos & (IMGS - 1);
 		px.texpos += px.step;
 		if (side == 0 && raydir->x > 0)
-			px.color = sys->txt->txts[0][(int)(IMGS * px.tex_y + px.tex_x)];
-		else if (side == 0 && raydir->x <= 0)
-			px.color = sys->txt->txts[1][(int)(IMGS * px.tex_y + px.tex_x)];
-		else if (side == 1 && raydir->y > 0)
-			px.color = sys->txt->txts[2][(int)(IMGS * px.tex_y + px.tex_x)];
-		else
 			px.color = sys->txt->txts[3][(int)(IMGS * px.tex_y + px.tex_x)];
+		else if (side == 0 && raydir->x <= 0)
+			px.color = sys->txt->txts[2][(int)(IMGS * px.tex_y + px.tex_x)];
+		else if (side == 1 && raydir->y > 0)
+			px.color = sys->txt->txts[1][(int)(IMGS * px.tex_y + px.tex_x)];
+		else
+			px.color = sys->txt->txts[0][(int)(IMGS * px.tex_y + px.tex_x)];
 		my_mlx_pixel_put(px.ray->frame, px.ray->ipix, px.y, px.color);
 		px.y++;
 	}
