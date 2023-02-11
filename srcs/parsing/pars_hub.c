@@ -6,16 +6,17 @@
 /*   By: lfantine <lfantine@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 10:30:45 by lfantine          #+#    #+#             */
-/*   Updated: 2023/02/03 11:25:25 by lfantine         ###   ########.fr       */
+/*   Updated: 2023/02/11 14:35:52 by lfantine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/cube3d.h"
 
-int	pars_hub2(t_system *sys, int s);
-int	pars_hub3(t_system *sys);
-int	verif_mapfile(t_system *sys);
-int	verif_char(t_system *sys, int fd);
+char	**fixing(char	*buf, t_system *sys, char **map_t, int i);
+int		pars_hub2(t_system *sys, int s);
+int		pars_hub3(t_system *sys);
+int		verif_mapfile(t_system *sys);
+int		verif_char(t_system *sys, int fd);
 
 int	pars_hub(t_system *sys)
 {
@@ -97,8 +98,10 @@ int	verif_char(t_system *sys, int fd)
 	buf[i] = 0;
 	buf = remove_nl(buf);
 	i = 8;
-	sys->map = ft_split_cb(buf, '\n');
+	sys->map = fixing(buf, sys, NULL, 0);
 	free(buf);
+	if(sys->map == NULL)
+		return (-1);
 	if (verif_line(sys) == -1)
 		return (-1);
 	while (sys->map[i])
