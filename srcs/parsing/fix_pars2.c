@@ -6,7 +6,7 @@
 /*   By: lfantine <lfantine@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/11 14:02:50 by lfantine          #+#    #+#             */
-/*   Updated: 2023/02/13 13:22:41 by lfantine         ###   ########.fr       */
+/*   Updated: 2023/02/13 16:46:27 by lfantine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,6 @@ int	i_line(char **map_t, char *st, int mapl)
 	{
 		if (map_t[i][0] == st[0] && map_t[i][1] == st[1])
 		{
-			printf("i = %d et :[%s]\n", i, map_t[i]);
 			return (i);
 		}
 	}

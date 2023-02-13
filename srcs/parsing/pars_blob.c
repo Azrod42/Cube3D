@@ -6,7 +6,7 @@
 /*   By: lfantine <lfantine@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 10:22:00 by lfantine          #+#    #+#             */
-/*   Updated: 2023/02/13 12:20:39 by lfantine         ###   ########.fr       */
+/*   Updated: 2023/02/13 16:20:59 by lfantine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -121,7 +121,6 @@ int	blob_hub(char **map, t_pos p_pos)
 		i++;
 	ymax = i;
 	i = 0;
-	printf("%d | %d\n", p_pos.x, p_pos.y);
 	map[p_pos.y][p_pos.x] = 'M';
 	if (error_find(map, ymax) == -1)
 		return (blob_error("Error with border"));

@@ -6,7 +6,7 @@
 /*   By: lfantine <lfantine@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 10:30:45 by lfantine          #+#    #+#             */
-/*   Updated: 2023/02/13 14:56:08 by lfantine         ###   ########.fr       */
+/*   Updated: 2023/02/13 16:42:54 by lfantine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ char	**fixing(char	*buf, t_system *sys, char **map_t, int i);
 int		pars_hub2(t_system *sys, int s);
 int		pars_hub3(t_system *sys);
 int		verif_mapfile(t_system *sys);
-int		verif_char(t_system *sys, int fd);
+int		verif_char(t_system *sys, int fd, int i);
 
 int	pars_hub(t_system *sys)
 {
@@ -49,7 +49,7 @@ int	verif_mapfile(t_system *sys)
 		printf("File can't be read !\n");
 		return (-1);
 	}
-	if (verif_char(sys, fd) == -1)
+	if (verif_char(sys, fd, 0) == -1)
 		return (-1);
 	return (0);
 }
@@ -87,20 +87,18 @@ int	verif_char2(int k, t_system *sys, int i, int j)
 	return (0);
 }
 
-int	verif_char(t_system *sys, int fd)
+int	verif_char(t_system *sys, int fd, int i)
 {
-	int		i;
 	int		j;
 	char	*buf;
 
 	buf = ft_calloc(BUFFER_SIZE + 1, sizeof(char));
 	i = read(fd, buf, BUFFER_SIZE);
-	buf[i] = 0;
 	buf = remove_nl(buf);
 	i = 8;
 	sys->map = fixing(buf, sys, NULL, 0);
 	free(buf);
-	if(sys->map == NULL)
+	if (sys->map == NULL)
 		return (-1);
 	if (verif_line(sys) == -1)
 		return (-1);
