@@ -6,7 +6,7 @@
 /*   By: lfantine <lfantine@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 10:21:53 by lfantine          #+#    #+#             */
-/*   Updated: 2023/01/10 10:22:42 by lfantine         ###   ########.fr       */
+/*   Updated: 2023/02/13 12:19:39 by lfantine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,4 +31,10 @@ t_pos	find_start_player(char **map)
 		p_pos.y++;
 	}
 	return (p_pos);
+}
+
+int	blob_error(char	*str)
+{
+	printf("%s\n", str);
+	return (-1);
 }

@@ -31,6 +31,7 @@ SRCS	=	srcs/main.c \
 			srcs/exe/rc_2.c \
 			srcs/exe/cast2.c \
 			srcs/parsing/fix_pars.c \
+			srcs/parsing/fix_pars2.c \
 			
 
 SRCS_B =	srcs/main.c \
@@ -61,6 +62,7 @@ SRCS_B =	srcs/main.c \
 			srcs/exe/rc_2.c \
 			srcs/exe/cast2.c \
 			srcs/parsing/fix_pars.c \
+			srcs/parsing/fix_pars2.c \
 
 INCLUDE = includes/cube3d.h \
 			

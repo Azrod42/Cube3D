@@ -6,7 +6,7 @@
 /*   By: lfantine <lfantine@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 10:22:00 by lfantine          #+#    #+#             */
-/*   Updated: 2023/01/10 10:34:11 by lfantine         ###   ########.fr       */
+/*   Updated: 2023/02/13 12:20:39 by lfantine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 
 int		blob_hub(char **map, t_pos p_pos);
 t_pos	find_start_player(char **map);
+int		blob_error(char	*str);
 
 int	launch_blob(t_system *sys)
 {
@@ -120,7 +121,10 @@ int	blob_hub(char **map, t_pos p_pos)
 		i++;
 	ymax = i;
 	i = 0;
+	printf("%d | %d\n", p_pos.x, p_pos.y);
 	map[p_pos.y][p_pos.x] = 'M';
+	if (error_find(map, ymax) == -1)
+		return (blob_error("Error with border"));
 	while (finish_blob(map) == 0)
 	{
 		i = 0;
@@ -130,10 +134,7 @@ int	blob_hub(char **map, t_pos p_pos)
 			i++;
 		}
 		if (error_find(map, ymax) == -1)
-		{
-			printf("Error with border\n");
-			return (-1);
-		}
+			return (blob_error("Error with border"));
 	}
 	return (0);
 }
