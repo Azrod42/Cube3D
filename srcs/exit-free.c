@@ -6,7 +6,7 @@
 /*   By: tsorabel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/03 09:12:47 by tsorabel          #+#    #+#             */
-/*   Updated: 2023/02/15 14:32:00 by tsorabel         ###   ########.fr       */
+/*   Updated: 2023/02/15 14:34:00 by tsorabel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 void	free_all_cb(t_system *sys)
 {
 	sys->end = 1;
-	system("leaks cub3D");
 	exit(0);
 }
 

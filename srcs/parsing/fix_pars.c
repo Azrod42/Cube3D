@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   fix_pars.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lfantine <lfantine@student.42.fr>          +#+  +:+       +#+        */
+/*   By: tsorabel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/11 14:02:50 by lfantine          #+#    #+#             */
-/*   Updated: 2023/02/13 16:46:21 by lfantine         ###   ########.fr       */
+/*   Updated: 2023/02/15 14:34:53 by tsorabel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ char	**error(char **map_t, t_system *sys)
 {
 	free_char_tab(map_t);
 	printf("Error in map format\n");
+	system("leaks cub3D");
 	return (NULL);
 	(void)sys;
 }
