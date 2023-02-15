@@ -6,7 +6,7 @@
 /*   By: tsorabel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/06 12:50:39 by lfantine          #+#    #+#             */
-/*   Updated: 2023/02/15 14:31:20 by tsorabel         ###   ########.fr       */
+/*   Updated: 2023/02/15 14:35:43 by tsorabel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,6 @@ int	check_rgb(char **s, int ln, int count, int comac)
 	int	i;
 	int	nb;
 
-	print_char_tab(s);
 	if (precheck(s, ln, 0) == -1)
 		return (-1);
 	crgb(s, ln, &i, &nb);
