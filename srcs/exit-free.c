@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   exit-free.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lfantine <lfantine@student.42.fr>          +#+  +:+       +#+        */
+/*   By: tsorabel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/03 09:12:47 by tsorabel          #+#    #+#             */
-/*   Updated: 2023/02/13 17:34:52 by lfantine         ###   ########.fr       */
+/*   Updated: 2023/02/15 14:18:55 by tsorabel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,7 +76,6 @@ int	precheck(char **s, int ln, int comac)
 			i++;
 		while (s[ln][i] && s[ln][i] >= '0' && s[ln][i] <= '9')
 			i++;
-		printf("%c\n", s[ln][i]);
 		if (s[ln][i] != ',' && s[ln][i] != '\0')
 		{
 			printf("Invalid RGB\n");
