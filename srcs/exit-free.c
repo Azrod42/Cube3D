@@ -6,7 +6,7 @@
 /*   By: tsorabel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/03 09:12:47 by tsorabel          #+#    #+#             */
-/*   Updated: 2023/02/15 14:25:17 by tsorabel         ###   ########.fr       */
+/*   Updated: 2023/02/15 14:32:00 by tsorabel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,19 +54,25 @@ char	*remove_nl(char *str)
 	return (new);
 }
 
-int	precheck(char **s, int ln, int comac)
+int	comapc(char **s, int ln, int *comac, int i)
 {
-	int	i;
-
-	i = 0;
 	while (s[ln][++i])
 		if (s[ln][i] == ',')
-			comac++;
-	if (comac != 2)
+			*comac += 1;
+	if (*comac != 2)
 	{
 		printf("Invalid RGB\n");
 		return (-1);
 	}
+	return (0);
+}
+
+int	precheck(char **s, int ln, int comac)
+{
+	int	i;
+
+	if (comapc(s, ln, &comac, 0) == -1)
+		return (-1);
 	i = 0;
 	while (s[ln][i] && (s[ln][++i] == 32 || (s[ln][i] >= 9 && s[ln][i] <= 13)))
 		;
@@ -76,7 +82,6 @@ int	precheck(char **s, int ln, int comac)
 			i++;
 		while (s[ln][i] && s[ln][i] >= '0' && s[ln][i] <= '9')
 			i++;
-		printf("%c\n", s[ln][i]);
 		if (s[ln][i] != ',' && s[ln][i] != '\0')
 		{
 			printf("Invalid RGB\n");
@@ -85,44 +90,6 @@ int	precheck(char **s, int ln, int comac)
 		if (s[ln][i] == '\0')
 			return (0);
 		i++;
-	}
-	return (0);
-}
-void	crgb(char **s, int ln, int *i, int *nb)
-{
-	*i = 1;
-	while (s[ln][*i] == 32 || (s[ln][*i] >= 9 && s[ln][*i] <= 13))
-		*i += 1;
-	*nb = ft_atoi(&s[ln][*i]);
-	*i -= 1;
-}
-
-int	check_rgb(char **s, int ln, int count, int comac)
-{
-	int	i;
-	int	nb;
-
-	i = 0;
-	print_char_tab(s);
-	if (precheck(s, ln, 0) == -1)
-		return (-1);
-	crgb(s, ln, &i, &nb);
-	while (s[ln][++i])
-	{
-		if ((s[ln][i] >= '0' && s[ln][i] <= '9') || s[ln][i] == 32)
-			count++;
-		if (s[ln][i] == ',')
-		{
-			count = 0;
-			comac++;
-			nb = ft_atoi(&s[ln][i + 1]);
-		}
-		if (count > 3 || comac > 3 || ((s[ln][i] < '0' || nb < 0 || s[ln][i]
-			> '9') && s[ln][i] != ',' && s[ln][i] != ' ') || nb > 255)
-		{
-			printf("Invalid RGB\n");
-			return (-1);
-		}
 	}
 	return (0);
 }

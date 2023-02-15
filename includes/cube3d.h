@@ -6,7 +6,7 @@
 /*   By: tsorabel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/02 08:00:29 by lfantine          #+#    #+#             */
-/*   Updated: 2023/02/03 09:34:45 by tsorabel         ###   ########.fr       */
+/*   Updated: 2023/02/15 14:31:01 by tsorabel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -195,5 +195,6 @@ void	free_all_cb(t_system *sys);
 char	*ft_strjoin_cub(char *s1, char *s2);
 char	*remove_nl(char *str);
 int		check_rgb(char **s, int ln, int count, int comac);
+int		precheck(char **s, int ln, int comac);
 
 #endif
