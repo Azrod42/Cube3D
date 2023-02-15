@@ -6,7 +6,7 @@
 /*   By: tsorabel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/03 09:12:47 by tsorabel          #+#    #+#             */
-/*   Updated: 2023/02/15 14:18:55 by tsorabel         ###   ########.fr       */
+/*   Updated: 2023/02/15 14:25:00 by tsorabel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,6 +76,7 @@ int	precheck(char **s, int ln, int comac)
 			i++;
 		while (s[ln][i] && s[ln][i] >= '0' && s[ln][i] <= '9')
 			i++;
+		printf("%c\n", s[ln][i]);
 		if (s[ln][i] != ',' && s[ln][i] != '\0')
 		{
 			printf("Invalid RGB\n");
@@ -87,6 +88,14 @@ int	precheck(char **s, int ln, int comac)
 	}
 	return (0);
 }
+void	crgb(char **s, int ln, int *i, int *nb)
+{
+	*i = 1;
+	while (s[ln][*i] == 32 || (s[ln][*i] >= 9 && s[ln][*i] <= 13))
+		*i += 1;
+	nb = ft_atoi(&s[ln][*i]);
+	*i -= 1;
+}
 
 int	check_rgb(char **s, int ln, int count, int comac)
 {
@@ -97,9 +106,7 @@ int	check_rgb(char **s, int ln, int count, int comac)
 	print_char_tab(s);
 	if (precheck(s, ln, 0) == -1)
 		return (-1);
-	while (s[ln][++i] == 32 || (s[ln][i] >= 9 && s[ln][i] <= 13))
-		;
-	nb = ft_atoi(&s[ln][i--]);
+	crgb(s, ln, &i, &nb);
 	while (s[ln][++i])
 	{
 		if ((s[ln][i] >= '0' && s[ln][i] <= '9') || s[ln][i] == 32)
@@ -110,8 +117,8 @@ int	check_rgb(char **s, int ln, int count, int comac)
 			comac++;
 			nb = ft_atoi(&s[ln][i + 1]);
 		}
-		if (count > 3 || comac > 3 || ((s[ln][i] < '0' || nb < 0
-				|| s[ln][i] > '9') && s[ln][i] != ',' && s[ln][i] != ' ') || nb > 255)
+		if (count > 3 || comac > 3 || ((s[ln][i] < '0' || nb < 0 || s[ln][i]
+			> '9') && s[ln][i] != ',' && s[ln][i] != ' ') || nb > 255)
 		{
 			printf("Invalid RGB\n");
 			return (-1);
