@@ -6,7 +6,7 @@
 /*   By: lfantine <lfantine@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/11 14:02:50 by lfantine          #+#    #+#             */
-/*   Updated: 2023/02/25 12:00:31 by lfantine         ###   ########.fr       */
+/*   Updated: 2023/02/25 12:06:17 by lfantine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,6 +104,5 @@ char	**fixing(char	*buf, t_system *sys, char **map_t, int i)
 	if (initialize1(0, sys, mapl, map_t) == -1)
 		return (error(map_t, sys));
 	tgmlp(sys, map_t, mapl, 0);
-	free_char_tab(map_t);
 	return (alloftrim(sys->map));
 }
