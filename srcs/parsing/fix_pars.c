@@ -3,19 +3,20 @@
 /*                                                        :::      ::::::::   */
 /*   fix_pars.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tsorabel <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: lfantine <lfantine@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/11 14:02:50 by lfantine          #+#    #+#             */
-/*   Updated: 2023/02/15 14:38:39 by tsorabel         ###   ########.fr       */
+/*   Updated: 2023/02/25 11:16:27 by lfantine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/cube3d.h"
 
-int	fix_dpre(char **file, int mapl);
-int	i_line(char **map_t, char *st, int mapl);
-int	is_mapline(char **map);
-int	verifmapf(char **map, int mapl, int i);
+char	**alloftrim(char **file);
+int		fix_dpre(char **file, int mapl);
+int		i_line(char **map_t, char *st, int mapl);
+int		is_mapline(char **map);
+int		verifmapf(char **map, int mapl, int i);
 
 char	**error(char **map_t, t_system *sys)
 {
@@ -103,5 +104,5 @@ char	**fixing(char	*buf, t_system *sys, char **map_t, int i)
 		return (error(map_t, sys));
 	tgmlp(sys, map_t, mapl, 0);
 	free_char_tab(map_t);
-	return (sys->map);
+	return (alloftrim(sys->map));
 }
