@@ -62,7 +62,7 @@ SRCS	=	ft_atoi.c \
 			ft_lstmap.c \
 			ft_lstsize.c \
 			ft_lstnew.c \
-			ft_lstsize.c
+			ft_lstsize.c 
 OBJS	= $(SRCS:.c=.o)
 OBJS_B	= $(SRCS_B:.c=.o)
 RM		= rm -f
