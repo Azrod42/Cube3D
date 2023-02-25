@@ -35,37 +35,6 @@ SRCS	=	srcs/main.c \
 			srcs/parsing/fix_pars3.c \
 			
 
-SRCS_B =	srcs/main.c \
-			srcs/parsing_bonus/pars_hub_bonus.c \
-			srcs/parsing_bonus/pars_utils_bonus.c \
-			srcs/parsing/ft_split_cb3d.c \
-			srcs/parsing_bonus/pars_hub2_bonus.c \
-			srcs/parsing_bonus/pars_hub3_bonus.c \
-			srcs/parsing/ft_memchr_cb.c \
-			srcs/parsing/ft_memcpy_cb.c \
-			srcs/parsing/ft_strtrim_cb.c \
-			srcs/parsing_bonus/pars_map_check_bonus.c \
-			srcs/parsing_bonus/pars_map_check2_bonus.c \
-			srcs/parsing/ft_strdup_cb.c \
-			srcs/parsing_bonus/pars_blob_bonus.c \
-			srcs/parsing_bonus/pars_blob2_bonus.c \
-			srcs/exe/exe_hub.c \
-			srcs/exe/raycasting.c \
-			srcs/exe/input.c \
-			srcs/exit-free.c \
-			srcs/exe/minimap.c \
-			srcs/exe/minimap2.c \
-			srcs/ft_itoa_base_cub.c \
-			srcs/ft_atoi_base.c \
-			srcs/ft_strjoin_cub.c \
-			srcs/exe/input_loop.c \
-			srcs/exe/textures.c \
-			srcs/exe/rc_2.c \
-			srcs/exe/cast2.c \
-			srcs/parsing/fix_pars.c \
-			srcs/parsing/fix_pars2.c \
-			srcs/parsing/fix_pars3.c \
-
 INCLUDE = includes/cube3d.h \
 			
 OBJS	= $(SRCS:.c=.o)
@@ -93,21 +62,6 @@ $(NAME)	: flag_use ${OBJS}
 	${_USAGE}
 
 all	: $(NAME)
-
-
-bonus : flag_use $(OBJS_B)
-	@echo "${_BOLD}✅ ${_IGREEN}Cube3d > *.o Done${_END}"
-	@make -C ${LIBFTPATH}
-	${_STATUS1}
-	@mv $(LIBFTPATH)${LIBFTNAME} ${LIBFTNAME}
-	${_DONE}
-	make -C ${MLXPATH}
-	mv $(MLXPATH)${MLXNAME} ${MLXNAME}
-	${_STATUS2}
-	@${CC} ${FLAGS} ${MLXFLAGS} ${OBJS_B} ${LIBFTNAME} ${MLXNAME} -o ${NAME}
-	${_DONE}
-	${_PRINTART1}
-	${_USAGE}
 
 re	: fclean all
 
