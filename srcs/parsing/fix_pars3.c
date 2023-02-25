@@ -6,7 +6,7 @@
 /*   By: lfantine <lfantine@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/11 14:02:50 by lfantine          #+#    #+#             */
-/*   Updated: 2023/02/25 11:16:32 by lfantine         ###   ########.fr       */
+/*   Updated: 2023/02/25 11:33:13 by lfantine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,5 +30,6 @@ char	**alloftrim(char **file)
 	file[3] = letrim(file[3]);
 	file[5] = letrim(file[5]);
 	file[6] = letrim(file[6]);
+	print_char_tab(file);
 	return (file);
 }

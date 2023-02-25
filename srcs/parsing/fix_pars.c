@@ -6,7 +6,7 @@
 /*   By: lfantine <lfantine@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/11 14:02:50 by lfantine          #+#    #+#             */
-/*   Updated: 2023/02/25 11:16:27 by lfantine         ###   ########.fr       */
+/*   Updated: 2023/02/25 11:51:01 by lfantine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,7 +83,11 @@ char	**fixing(char	*buf, t_system *sys, char **map_t, int i)
 	int	mapl;
 	int	t;
 
-	map_t = ft_split_cb(buf, '\n');
+	while (buf[i] == '\n')
+		i++;
+	map_t = ft_split_cb(&buf[i], '\n');
+	print_char_tab(map_t);
+	i = 0;
 	mapl = is_mapline(map_t);
 	if (verifmapf(map_t, mapl, -1) == 1)
 		return (error(map_t, sys));
