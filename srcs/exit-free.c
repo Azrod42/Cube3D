@@ -6,7 +6,7 @@
 /*   By: tsorabel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/03 09:12:47 by tsorabel          #+#    #+#             */
-/*   Updated: 2023/02/25 11:25:53 by tsorabel         ###   ########.fr       */
+/*   Updated: 2023/02/25 11:26:40 by tsorabel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,32 +62,6 @@ int	comapc(char **s, int ln, int *comac, int i)
 	{
 		printf("Invalid RGB\n");
 		return (-1);
-	}
-	return (0);
-}
-
-int	prepre(char **s, int ln)
-{
-	int	i;
-	int	bc;
-
-	i = 0;
-	bc = -1;
-	while (s[ln][i] && (s[ln][++i] == 32 || (s[ln][i] >= 9 && s[ln][i] <= 13)))
-		;
-	while (++bc < 3)
-	{
-		while (s[ln][i] && s[ln][i] == 32)
-			i++;	
-		if ((s[ln][i] < '0' || s[ln][i] > '9'))
-		{
-			printf("Invalid RGB\n");
-			return (-1);
-		}
-		while (s[ln][++i] && s[ln][i] != ',')
-			;
-		if (s[ln][i] == ',')
-			i++;
 	}
 	return (0);
 }

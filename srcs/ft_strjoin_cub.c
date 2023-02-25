@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strjoin_cub.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lfantine <lfantine@student.42.fr>          +#+  +:+       +#+        */
+/*   By: tsorabel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/10 09:42:16 by tsorabel          #+#    #+#             */
-/*   Updated: 2023/02/02 10:44:06 by lfantine         ###   ########.fr       */
+/*   Updated: 2023/02/25 11:26:13 by tsorabel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,4 +36,30 @@ char	*ft_strjoin_cub(char *s1, char *s2)
 	if (s2)
 		free(s2);
 	return (dup);
+}
+
+int	prepre(char **s, int ln)
+{
+	int	i;
+	int	bc;
+
+	i = 0;
+	bc = -1;
+	while (s[ln][i] && (s[ln][++i] == 32 || (s[ln][i] >= 9 && s[ln][i] <= 13)))
+		;
+	while (++bc < 3)
+	{
+		while (s[ln][i] && s[ln][i] == 32)
+			i++;	
+		if ((s[ln][i] < '0' || s[ln][i] > '9'))
+		{
+			printf("Invalid RGB\n");
+			return (-1);
+		}
+		while (s[ln][++i] && s[ln][i] != ',')
+			;
+		if (s[ln][i] == ',')
+			i++;
+	}
+	return (0);
 }

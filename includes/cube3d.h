@@ -6,7 +6,7 @@
 /*   By: tsorabel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/02 08:00:29 by lfantine          #+#    #+#             */
-/*   Updated: 2023/02/15 14:31:01 by tsorabel         ###   ########.fr       */
+/*   Updated: 2023/02/25 11:26:25 by tsorabel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -192,6 +192,7 @@ int		print_mini2(t_system *sys, int posox, int posoy, t_pos *pos);
 void	print_mini(t_data *frame, t_system *sys, int posox, int posoy);
 void	init_minimap(t_system *sys, int i, int j, int k);
 void	free_all_cb(t_system *sys);
+int		prepre(char **s, int ln);
 char	*ft_strjoin_cub(char *s1, char *s2);
 char	*remove_nl(char *str);
 int		check_rgb(char **s, int ln, int count, int comac);
