@@ -6,7 +6,7 @@
 /*   By: tsorabel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/03 09:12:47 by tsorabel          #+#    #+#             */
-/*   Updated: 2023/02/25 11:24:47 by tsorabel         ###   ########.fr       */
+/*   Updated: 2023/02/25 11:25:53 by tsorabel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,7 +80,10 @@ int	prepre(char **s, int ln)
 		while (s[ln][i] && s[ln][i] == 32)
 			i++;	
 		if ((s[ln][i] < '0' || s[ln][i] > '9'))
+		{
+			printf("Invalid RGB\n");
 			return (-1);
+		}
 		while (s[ln][++i] && s[ln][i] != ',')
 			;
 		if (s[ln][i] == ',')
