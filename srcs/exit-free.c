@@ -6,7 +6,7 @@
 /*   By: lfantine <lfantine@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/03 09:12:47 by tsorabel          #+#    #+#             */
-/*   Updated: 2023/02/25 13:16:03 by lfantine         ###   ########.fr       */
+/*   Updated: 2023/02/25 13:29:29 by lfantine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 void	free_all_cb(t_system *sys)
 {
 	sys->end = 1;
-	free_char_tab(sys->map);
 	system("leaks cub3D");
 	exit(0);
 }
